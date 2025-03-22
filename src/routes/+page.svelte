@@ -10,12 +10,12 @@
 </script>
 
 <svelte:head>
-  <title>Home – SvelteKit Commerce</title>
+  <title>Home – Natural Soap</title>
 </svelte:head>
 
 <main>
   <section>
-    <div class="lg:h-[90vh] bg-white">
+    <div class="lg:h-[90vh] bg-beige">
       <ThreeItemGrid products={featuredCollection} />
     </div>
   </section>
@@ -24,21 +24,20 @@
   </section>
   <section>
     <div
-      class="flex flex-col px-8 py-20 text-black border border-gray-300 bg-white lg:flex-row lg:items-center"
+      class="flex flex-col px-8 py-20 text-gray-800 border border-gray-300 bg-white lg:flex-row lg:items-center"
     >
       <div
-        class="flex-none mb-4 mr-8 text-3xl font-black text-left md:text-4xl lg:mb-0 lg:w-1/3 lg:text-right lg:text-6xl"
+        class="flex-none mb-4 mr-8 text-3xl font-serif text-left md:text-4xl lg:mb-0 lg:w-1/3 lg:text-right lg:text-6xl"
       >
-        Dessert dragée halvah croissant.
+        Handcrafted Soap Delights
       </div>
       <div>
-        <div class="lg:text-2xl text-black">
-          Cupcake ipsum dolor sit amet lemon drops pastry cotton candy. Sweet carrot cake macaroon
-          bonbon croissant fruitcake jujubes macaroon oat cake. Soufflé bonbon caramels jelly beans.
-          Tiramisu sweet roll cheesecake pie carrot cake.
+        <div class="lg:text-2xl text-gray-700">
+          Made with all-natural ingredients, our soaps nourish and cleanse your skin with love. 
+          Experience the soothing touch of nature's finest elements.
         </div>
-        <button class="mt-4 font-bold text-svelteOrange hover:text-svelteDark lg:text-2xl">
-          Read it here
+        <button class="mt-4 font-bold text-softGreen hover:text-softLavender lg:text-2xl">
+          Discover Our Collection
         </button>
       </div>
     </div>
@@ -46,6 +45,23 @@
 </main>
 
 <style>
+  /* Colors for a natural feel */
+  :global(body) {
+    font-family: 'Poppins', sans-serif; /* Natural soft font */
+  }
+
+  :global(.text-softGreen) {
+    color: #A8D5BA; /* Light green color */
+  }
+
+  :global(.text-softLavender) {
+    color: #C7A4D6; /* Soft lavender for hover effect */
+  }
+
+  :global(.bg-beige) {
+    background-color: #F4E1D2; /* Soft beige background */
+  }
+
   /* Ensure uniform product size */
   .product-item {
     height: 300px; /* Adjust the height as needed */
@@ -57,5 +73,19 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the size of grid items */
     gap: 20px;
+  }
+
+  /* Button styling */
+  button {
+    background-color: #A8D5BA; /* Soft green button background */
+    border-radius: 25px;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #C7A4D6; /* Soft lavender on hover */
+    color: white;
   }
 </style>
