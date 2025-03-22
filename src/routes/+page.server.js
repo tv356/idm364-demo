@@ -8,10 +8,12 @@ export async function load({ url }) {
     const products = res.body?.data?.collections?.edges;
 
     if (products) {
-      return { products };
+      return {
+        props: { products }  // Ensure products are returned inside the props object
+      };
     }
-    error(404);
+    throw error(404, 'Products not found'); // Use `throw error` for proper error handling
   } else {
-    error(res.status);
+    throw error(res.status, 'Failed to fetch data');
   }
 }
