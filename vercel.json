@@ -1,0 +1,8 @@
+{
+  "builds": [
+    {
+      "src": "src/routes/api/products.js",
+      "use": "@vercel/node"
+    }
+  ]
+}
