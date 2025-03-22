@@ -1,4 +1,3 @@
-// src/routes/api/products.js
 import { json } from '@sveltejs/kit';
 
 export async function GET() {
