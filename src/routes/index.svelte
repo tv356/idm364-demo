@@ -35,3 +35,18 @@
     {/each}
   </div>
 </main>
+
+<script>
+  import { cart } from '$stores/cart';
+
+  function addToCart(product) {
+    cart.update(currentCart => {
+      return [...currentCart, product];
+    });
+  }
+</script>
+
+<button class="bg-blue-500 text-white py-2 px-4 rounded-md" on:click={() => addToCart(product)}>
+  Add to Cart
+</button>
+
