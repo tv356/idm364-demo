@@ -1,18 +1,20 @@
 // src/routes/+page.server.js
+import { getAllCollections } from '$utils/shopify';
 import { error } from '@sveltejs/kit';
 
-export async function load() {
-  try {
-    const res = await fetch('/api/products'); // Fetch from your custom API route
-    const data = await res.json();
+/** @type {import('./$types').RequestHandler} */
+export async function load({ url }) {
+  const res = await getAllCollections();
+  if (res.status === 200) {
+    const products = res.body?.data?.collections?.edges;
 
-    if (data?.products) {
-      return { products: data.products }; // Pass products to your page
-    } else {
-      throw new Error('Products not found');
+    if (products) {
+      return {
+        props: { products }  // Ensure products are returned inside the props object
+      };
     }
-  } catch (err) {
-    console.error(err);
-    throw error(404, 'Products not found or error occurred.');
+    throw error(404, 'Products not found'); // Use `throw error` for proper error handling
+  } else {
+    throw error(res.status, 'Failed to fetch data');
   }
 }
